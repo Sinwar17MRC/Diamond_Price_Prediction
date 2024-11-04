@@ -1,3 +1,4 @@
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 *{
     box-sizing: border-box;
@@ -16,5 +17,37 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 30px 10%;
 }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color: #0088a9;
+}
+button{
+    padding: 10px 20px;
+    background-color: #0088a9;
+    border: none;
+    border-radius 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+</style>
