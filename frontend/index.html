@@ -19,10 +19,30 @@ li,a, button{
     text-decoration: none;
 
 }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Adjust spacing between items */
+}
+
+/* Ensure header has space to spread content */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 30px 10%;
 }
     </style>
@@ -31,7 +51,7 @@ header {
 </head>
 <body>
     <header class="header">
-        <nav>
+        <nav class="navbar">
             <div class="logo">
             "The Obesity Checker"
             </div>
