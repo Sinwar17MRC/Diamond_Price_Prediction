@@ -75,7 +75,7 @@ nav a:active{
         border-bottom-left-radius: 2rem;
         padding: 1rem solid;
         background-color: #161616;
-        border-top: 0.1rem solid rgb(0,0,0,0.1);
+        border-top: 0.01rem solid rgb(0,0,0,0.1);
     }
 
     nav.active{
