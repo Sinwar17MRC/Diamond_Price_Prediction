@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/diamond.png">
-    <title>Diamond Lens  </title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/76dff40395.js" crossorigin="anonymous"></script>
+    <title>Diamond Lens</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+
 
         * {
             box-sizing: border-box;
@@ -25,26 +31,27 @@
 
         body {
             width: 100%;
-            height: 100vh;
+            height: 100%;
             overflow-x: hidden;
-            background-color: #000;
-            color: #ffffff;
+            margin:0;
+            padding: 0;
+            color: rgb(27, 23, 23);
+            background-color: blanchedalmond;
         }
 
         header {
-            margin-top: 0px;
             position: fixed;
-            top: 0;
+            top: -0.53rem;
             left: 0;
             width: 100%;
             padding: 2.5rem 9%;
-            background-color: transparent;
-            filter: drop-shadow(40px);
+            background-color: #002647;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0.5px 6.5px 20px rgb(9, 194, 255);
             z-index: 100;
+            box-shadow: 0.5px 0.5px 15px rgb(97, 198, 223);
+            height: 8rem;  /* Set the height of the header */
         }
 
         .logo {
@@ -56,8 +63,8 @@
             margin-left: -6rem;
         }
 
-        .logo:hover{
-            transform: scale(1.1)
+        .logo:hover {
+            transform: scale(1.1);
         }
 
         .menu-toggle {
@@ -77,7 +84,6 @@
         }
 
         nav a {
-          
             font-size: 2.3rem;
             color: #ffffff;
             margin-left: 4.5rem;
@@ -94,7 +100,7 @@
 
         .btn_ctc {
             margin-right: -10rem;
-            display: inline-flexbox;
+            display: inline-flex;
             padding: 1rem 2.8rem;
             background-color: transparent;
             border-radius: 1.8rem;
@@ -102,8 +108,8 @@
             color: #4bccfe;
             letter-spacing: 0.3rem;
             font-weight: 600;
-            border: 2px solid#4bccfe;
-            transition: 0.3S ease;
+            border: 2px solid #4bccfe;
+            transition: 0.3s ease;
             cursor: pointer;
         }
 
@@ -112,48 +118,265 @@
             background-color: #4bccfe;
             color: white;
             box-shadow: 0 0 25px solid white;
-         
         }
 
+        /* Content section below the header with background image */
+        #home {
+            width: 100%;
+            height: calc(100vh - 8rem); /* Subtract header height */
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/Diamond-Industry-Statistics-1024x576.png');
+            background-position: center;
+            margin-top: 8rem;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home h1 {
+            font-size: 6.5rem;
+            font-family: 'Cinzel', serif;
+            color: bisque;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+            position: relative; /* Allows us to use 'top' without affecting other elements */
+            top: -10rem; 
+        }
+
+        #home p {
+            width: 60%; /* Set width to a comfortable width */
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-align: center; /* Center-align text */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Playfair Display', serif; /* Artistic font */
+            line-height: 2.4; /* Increase line spacing */
+            margin: 0 auto; /* Center horizontally */
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Start position for animation */
+            animation: fadeInUp 1.5s ease forwards; /* Fade-in animation */
+            position: relative; /* Allows us to use 'top' without affecting other elements */
+            top: -4rem; 
+        }
+
+        #home a {
+            text-decoration: dotted;
+            font-size: 0.9;
+            padding: 13px 35px;
+            background-color: bisque;
+            font-weight: 600;
+            border-radius: 8px;
+        } 
+
+        
+
+        #home a.blue{
+            position: relative;
+            top: 7rem;
+            right: 5rem;
+            display: inline-flex;
+            justify-content: center; /* Centers the text horizontally */
+            align-items: center;
+            padding: 2rem 3.5rem; /* Adjust padding for consistency */
+            min-width: 240px;
+            background-color: transparent;
+            border-radius: 2.8rem;
+            font-size: 2rem;
+            color: bisque;
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            border: 2px solid #4bccfe;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        #home a.blue:hover{
+            transform: scale(1.1);
+            background-color: bisque;
+            color: #4bccfe;
+            box-shadow: 0 0 25px solid white;
+        }
+
+        #home a.baj{
+            position: relative;
+            left: 5rem;
+            top: 7rem;
+            display: inline-flex;
+            padding: 2rem 2.8rem;
+            background-color: transparent;
+            border-radius: 2.8rem;
+            font-size: 2rem;
+            color: #4bccfe;
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            border: 2px solid bisque;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        #home a.baj:hover{
+            transform: scale(1.1);
+            background-color: #4bccfe;
+            color: white;
+            box-shadow: 0 0 25px solid white;
+        }
+
+        #How {
+    background-color: blanchedalmond;
+    padding: 5vw 8vw 0 8vw;
+    text-align: center;
+}
+
+#How h1 {
+    margin-top: -6rem;
+    font-size: 6.5rem;
+    font-family: 'Playfair Display', serif;
+    color: #1a1e34; /* Blue Jeans color */
+    font-weight: 800;
+    margin-bottom: 8rem; /* Space below the heading */
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: space-between; /* Align boxes in a row with space between them */
+    gap: 3.1rem; /* Space between the boxes */
+    justify-content: center;
+    margin-bottom: 2rem /* Center the boxes horizontally */
+}
+
+.way {
+    background: #1a1e34;
+    flex: 1; /* Makes the boxes flexible and equal in size */
+    padding: 3rem;
+    border-radius: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-width: 30%; /* Ensures a minimum width for each box */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns content evenly */
+    height: 100%; 
+}
+
+.way .BOXES {
+    min-height: 30rem; /* Adjust this value as needed for consistent box height */
+}
+
+.way i {
+    
+    font-size: 5rem;
+    color: blanchedalmond; /* Almond color for the icon */
+}
+
+.way h3 {
+    margin-top: 5rem;
+    font-family: 'Roboto Slab', serif;
+    font-size: 3.2rem;
+    color: white;
+    margin: 1rem 0;
+}
+
+.way p {
+    font-size: 1.8rem;
+    color: #ffffff;
+    line-height: 1.8;
+    margin-top: -1rem;
+}
+
+.cta {
+    margin-top: 2.1rem;
+    display: inline-flex;
+    padding: 1rem 2.8rem;
+    background-color: transparent;
+    border-radius: 2.9rem;
+    font-size: 2rem;
+    color: #4bccfe;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #4bccfe;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.cta:hover {
+    transform: scale(1.1);
+    background-color: #4bccfe;
+    color: white;
+    box-shadow: 0 0 25px solid white;
+}
+
         @media (max-width: 995px) {
+    /* Make the logo smaller and center it */
             .logo {
                 font-size: 2.5rem;
+                margin-left: 0;
             }
 
+    /* Show the menu toggle button on mobile */
             .menu-toggle {
                 display: block;
+                
             }
 
+    /* Style the nav and make it a vertical layout when active */
             nav {
-                display: none;
+                display: none;  /* Hide initially */
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
                 right: 0;
                 width: 100%;
-                background-color: #161616;
+                background-color: #1c1717 ;
+                
                 border-left: 3px solid #4bccfe;
-                border-bottom: 3px solid #4bccfe;
+                
                 border-bottom-left-radius: 2rem;
                 padding: 1rem;
             }
 
+    /* Display the nav when it is active */
             nav.active {
                 display: flex;
             }
 
             nav a {
                 display: block;
-                font-size: 2rem;
+                font-size: 2.5rem;
                 margin: 1rem 0;
                 text-align: center;
+                color: #ffffff;
+            }
+
+    /* Hide the "Contact" button on mobile */
+            .btn_ctc {
+                display: none;
+            }
+
+    /* Adjust the background image to scale properly on mobile */
+            .home {
+                background-size: cover;
+                background-position: center;
+                height: 100vh; /* Ensure the section still takes the full screen */
             }
         }
+        @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
     </style>
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Diamond Lens</a>
+        <a href="#" class="logo"><i class="fa-regular fa-gem"></i>Diamond Lens</a>
         <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
         <nav>
             <a href="#">Home</a>
@@ -163,7 +386,49 @@
         </nav>
         <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
     </header>
-    
+    <!-- Content section with background image -->
+    <section id="home">
+        <h1>Welcome to Diamond Lens</h1>
+        <p> Discover powerful insights, track industry trends, and make informed predictions in the diamond market. 
+            Diamond Lens is your gateway to valuable analytics and tools, tailored for enthusiasts, investors, and professionals alike.</p>
+        <div class="btn">
+            <a class="blue" href="#">Read More</a>
+            <a class="baj" href="#">Predict Price</a>
+        </div>
+    </section>
+
+    <section id="How">
+        <h1> How We Predict the Price ?</h1>
+        <div class="boxes-container">
+            <div class="way">
+            <div class="BOXES">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Machine Learning </h3>
+                <p> Using all the techniques and methods we have learned in the Machine Learning Course, we used an Elastic-Net regressor model to predict the price of a Diamond based on 10 variables with an Accuracy of 90%</p>
+            </div>
+        </div>
+        <div class="way">
+            <div class="BOXES">
+                <i class="fa-solid fa-database" style="color: #f7e8b0;"></i>
+                <h3>Reliable Dataset</h3>
+                <p> with over than 53940 rows and 10 significant variables such as : the cut, the clarity, the carat and more , uncovering valuable insights into market trends and an excellent resources for the training of our model.</p>
+            </div>
+        </div> 
+        <div class="way">
+            <div class="BOXES">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <h3>Discover</h3>
+                <p> For a closer look on the training process , you can click the button below.
+                    Fill free to contact us for any question, remarque or idea for Enhancements 
+                </p>
+                <a href="#"><button class="cta">Discover</button></a>
+            </div>
+        </div>
+        </div> 
+    </section>
+
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
