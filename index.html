@@ -72,15 +72,18 @@
 
         nav {
             display: flex;
+            margin-left: 46rem;
+            
         }
 
         nav a {
+          
             font-size: 2.3rem;
             color: #ffffff;
-            margin-left: 5rem;
+            margin-left: 4.5rem;
             font-weight: 500;
             transition: 0.3s ease;
-            border-bottom: 3px solid transparent;
+            border-bottom: 4px solid transparent;
         }
 
         nav a:hover,
@@ -89,18 +92,27 @@
             border-bottom: 3px solid #4bccfe;
         }
 
-        .contact-button {
-            background-color: #4bccfe;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
+        .btn_ctc {
+            margin-right: -10rem;
+            display: inline-flexbox;
+            padding: 1rem 2.8rem;
+            background-color: transparent;
+            border-radius: 1.8rem;
+            font-size: 2rem;
+            color: #4bccfe;
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            border: 2px solid#4bccfe;
+            transition: 0.3S ease;
+            cursor: pointer;
         }
 
-        .contact-button:hover {
-            background-color: #0894cb;
-            color: #ffffff;
+        .btn_ctc:hover {
+            transform: scale(1.1);
+            background-color: #4bccfe;
+            color: white;
+            box-shadow: 0 0 25px solid white;
+         
         }
 
         @media (max-width: 995px) {
@@ -148,9 +160,8 @@
             <a href="#">Predict</a>
             <a href="#">Status</a>
             <a href="#">Learn More</a>
-            <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
         </nav>
-        
+        <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
     </header>
     
 
