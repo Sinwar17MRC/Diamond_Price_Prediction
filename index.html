@@ -27,6 +27,7 @@
 
         html {
             font-size: 62.5%;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -79,7 +80,7 @@
 
         nav {
             display: flex;
-            margin-left: 46rem;
+            margin-left: 42rem;
             
         }
 
@@ -227,10 +228,12 @@
     background-color: blanchedalmond;
     padding: 5vw 8vw 0 8vw;
     text-align: center;
+    height: 90vh;
+    width: 106%;
 }
 
 #How h1 {
-    margin-top: -6rem;
+    margin-top: -1rem;
     font-size: 6.5rem;
     font-family: 'Playfair Display', serif;
     color: #1a1e34; /* Blue Jeans color */
@@ -239,12 +242,15 @@
 }
 
 .boxes-container {
+    margin-left: -10rem;
     display: flex;
     justify-content: space-between; /* Align boxes in a row with space between them */
     gap: 3.1rem; /* Space between the boxes */
     justify-content: center;
     margin-bottom: 2rem /* Center the boxes horizontally */
 }
+
+
 
 .way {
     background: #1a1e34;
@@ -276,17 +282,19 @@
     font-size: 3.2rem;
     color: white;
     margin: 1rem 0;
+    margin-bottom:2rem;
 }
 
 .way p {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
     color: #ffffff;
     line-height: 1.8;
     margin-top: -1rem;
 }
 
 .cta {
-    margin-top: 2.1rem;
+    margin-top: 3rem;
+    margin-left: 01rem;
     display: inline-flex;
     padding: 1rem 2.8rem;
     background-color: transparent;
@@ -307,7 +315,41 @@
     box-shadow: 0 0 25px solid white;
 }
 
-        @media (max-width: 995px) {
+#Footer{
+    height: 35vh;
+    width:100%;
+    text-align: center;
+    padding: 30px 0;
+    background-color: #1a1e34;
+}
+
+#Footer h1{
+    color: bisque;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+}
+       
+#Footer p{
+    width: 100%;
+    color: aliceblue;
+    font-size: 1.9rem;
+    font-weight: 200;
+    line-height: 4rem;
+}
+
+#Footer .icons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    margin-left: 10rem;
+    font-size: 5rem;
+}
+
+
+    
+@media (max-width: 995px) {
     /* Make the logo smaller and center it */
             .logo {
                 font-size: 2.5rem;
@@ -353,14 +395,9 @@
             .btn_ctc {
                 display: none;
             }
-
-    /* Adjust the background image to scale properly on mobile */
-            .home {
-                background-size: cover;
-                background-position: center;
-                height: 100vh; /* Ensure the section still takes the full screen */
-            }
         }
+
+        
         @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -383,6 +420,7 @@
             <a href="#">Predict</a>
             <a href="#">Status</a>
             <a href="#">Learn More</a>
+            <a href="#Footer">About us</a>
         </nav>
         <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
     </header>
@@ -420,15 +458,33 @@
 
                 <h3>Discover</h3>
                 <p> For a closer look on the training process , you can click the button below.
-                    Fill free to contact us for any question, remarque or idea for Enhancements 
+                    Fill free to contact us for any remarque or idea for Enhancements 
                 </p>
                 <a href="#"><button class="cta">Discover</button></a>
             </div>
         </div>
         </div> 
+    </section
+    <section id="footer">
+
     </section>
 
-
+    <section id="Footer">
+        <h1>
+            About Us
+        </h1>
+        <p>
+           As Second year students in Modeling ans Scientific Computing Engineering <br>in the Mohammadia School of Engineers, this work is the application of what we've discovered in the Machine Learning Course,<br> specifically the supervised learning models.
+           <div class="icons">
+            
+            <a href="https://github.com/Sinwar17MRC/Diamond_Price_Prediction" target="_blank"><i class="fa-brands fa-github"></i></i></a>
+ 
+           </div>
+        </p>
+        <p class="h">
+            © 2024 Diamond Lens. Made by <a href="https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;" sty>I.BZIZ</a> and <a href="https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;">Y.AABBAD.</a>
+        </p>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
