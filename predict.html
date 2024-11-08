@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/diamond.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/76dff40395.js" crossorigin="anonymous"></script>
+    <title>Diamond Lens</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            outline: none;
+            border: none;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            margin:0;
+            padding: 0;
+            color: rgb(27, 23, 23);
+            background-color: blanchedalmond;
+        }
+
+        header {
+            position: fixed;
+            top: -0.53rem;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem 9%;
+            background-color: #002647;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0.5px 0.5px 15px rgb(97, 198, 223);
+            height: 8rem;  /* Set the height of the header */
+        }
+
+        .logo {
+            font-size: 4rem;
+            color: bisque;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.5s ease;
+            margin-left: -6rem;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 3rem;
+            background: none;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            margin-left: 53rem;
+            
+        }
+
+        nav a {
+            font-size: 2.3rem;
+            color: #ffffff;
+            margin-left: 4.5rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        nav a:hover,
+        nav a:active {
+            color: #ffffff;
+            border-bottom: 3px solid #4bccfe;
+        }
+
+        .btn_ctc {
+            margin-right: -10rem;
+            display: inline-flex;
+            padding: 1rem 2.8rem;
+            background-color: transparent;
+            border-radius: 1.8rem;
+            font-size: 2rem;
+            color: #4bccfe;
+            letter-spacing: 0.3rem;
+            font-weight: 600;
+            border: 2px solid #4bccfe;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn_ctc:hover {
+            transform: scale(1.1);
+            background-color: #4bccfe;
+            color: white;
+            box-shadow: 0 0 25px solid white;
+        }
+
+        
+
+#Footer{
+    height: 35vh;
+    width:100%;
+    text-align: center;
+    padding: 30px 0;
+    background-color: #1a1e34;
+}
+
+#Footer h1{
+    color: bisque;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+}
+       
+#Footer p{
+    width: 100%;
+    color: aliceblue;
+    font-size: 1.9rem;
+    font-weight: 200;
+    line-height: 4rem;
+}
+
+#Footer .icons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    margin-left: 10rem;
+    font-size: 5rem;
+}
+
+
+    
+@media (max-width: 995px) {
+    /* Make the logo smaller and center it */
+            .logo {
+                font-size: 2.5rem;
+                margin-left: 0;
+            }
+
+    /* Show the menu toggle button on mobile */
+            .menu-toggle {
+                display: block;
+                
+            }
+
+    /* Style the nav and make it a vertical layout when active */
+            nav {
+                display: none;  /* Hide initially */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background-color: #1c1717 ;
+                
+                border-left: 3px solid #4bccfe;
+                
+                border-bottom-left-radius: 2rem;
+                padding: 1rem;
+            }
+
+    /* Display the nav when it is active */
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                display: block;
+                font-size: 2.5rem;
+                margin: 1rem 0;
+                text-align: center;
+                color: #ffffff;
+            }
+
+    /* Hide the "Contact" button on mobile */
+            .btn_ctc {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/index.html" class="logo"><i class="fa-regular fa-gem"></i>Diamond Lens</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <nav>
+        </nav>
+        <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
+    </header>
+
+    <section id="predictor">
+        <h1>
+            Predict Your Diamond Price
+        </h1>
+        
+    </section>
+
+
+
+    <section id="Footer">
+        <h1>
+            About Us
+        </h1>
+        <p>
+           As Second year students in Modeling and Scientific Computing Engineering <br>in the Mohammadia School of Engineers, this work is the application of what we've discovered and learned through out<br> the Machine Learning Course, specifically the supervised learning models using regression algorithms.
+           <div class="icons">
+            <a href="https://github.com/Sinwar17MRC/Diamond_Price_Prediction" target="_blank"><i class="fa-brands fa-github"></i></a>
+           </div>
+        </p>
+        <p class="h">
+            © 2024 Diamond Lens. Made by <a href="https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;" sty>I.BZIZ</a> and <a href="https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;">Y.AABBAD.</a>
+        </p>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            toggleButton.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
