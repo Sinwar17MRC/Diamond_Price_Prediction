@@ -12,7 +12,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lilita+One&family=Merienda:wght@300..900&family=Montserrat:wght@500&display=swap');
 
         * {
             box-sizing: border-box;
@@ -79,7 +79,7 @@
 
         nav {
             display: flex;
-            margin-left: 53rem;
+            margin-right: 20rem;
             
         }
 
@@ -120,10 +120,180 @@
             box-shadow: 0 0 25px solid white;
         }
 
+        #predictor{
+            width: 100%;
+            height: calc(100vh - 8rem); /* Subtract header height */
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/diamond-industry-1-2650120503.jpg');
+            background-position: center;
+            margin-top: 8rem;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapper{
+            width:1770px;
+            height: 770px;
+            background: transparent;
+            border: 2px rgba(255,255,255,2);
+            backdrop-filter: blur(10px);
+            box-shadow: 1px 1px 6px blanchedalmond;
+            color: wheat;
+            border-radius: 20px;
+            padding: 6rem;
+        }
+
+        .wrapper h1 {
+            position: relative;
+            font-size: 5.5rem;
+            font-family: "Merienda", cursive;
+            font-weight: 400;
+            font-style: normal;
+            color: bisque;
+            bottom: 3rem;
+            left: 52rem;
+            top: -4rem;
+
+        }
+
+        #description{
+            position: relative;
+            font-size: 1.5rem;
+            color: #919090;
+            left: 30px;
+            top: -10px;
+        }
+
+        #input_cell{
+            width: 35%;
+            height: 50px; /* Adjusted to fit content */
+            margin-bottom: 5rem;
+            margin-top: 5px; /* Adds space between form blocks */
+            
+        }
+
+       
+
+        #input_cell input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255,255,255,.2);
+            border-radius: 60px;
+            padding: 20px 25px 25px 30px;
+            color: azure;
+            font-size:large;
+            -moz-appearance: textfield; /* Firefox */
+            -webkit-appearance: none; /* Chrome, Safari */
+             appearance: none; 
+        }
+
+        #input_cell input::-webkit-outer-spin-button,
+#input_cell input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#input_cell input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+        #input_cell input::placeholder{
+            color: rgb(187, 192, 197);
+            font-size: 1.3rem;
+            font-weight:lighter;
+        }
+
+        #input_cell label{
+            position: relative;
+            font-size: 2.2rem;
+            color:antiquewhite;
+            bottom: 10px;
+            left: 20px;
+        }
+
+        #Categ_fit {
+    width: 35%; /* Same width as #input_cell */
+    height: 50px; /* Same height as #input_cell */
+    margin-bottom: 7rem;
+    margin-top: 20px;
+    margin-left: 980px;
+    position: relative;
+    font-size: 16px;
+    color: white;
+    
+    
+}
+
+#Categ_fit {
+    top: -601px; /* Adjust to match the height of the first input cell */
+}
+
+#Categ_fit select{
+    width: 100%;
+    height: 100%;
+    margin-left: 0.1rem;
+    background: transparent;
+    color: rgb(211, 215, 215);
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 60px;
+    padding: 2px 4px 6px 17px;
+}
+
+
+#Categ_fit label {
+    font-size: 2.2rem;
+    color: antiquewhite;
+    font-family: 'Montserrat', sans-serif;
+    bottom: 10px;
+    left: 20px;
+    position: relative;
+}
+
+#Categ_fit option{
+    font-size: 20px;
+    background:#1a1e34;
+} 
+
+.cta {
+    width:max-content;
+    align-items: center;
+    height: 7rem;
+    position: relative;
+    bottom: 54rem;
+    left: 115rem;
+    display: inline-flex;
+    padding: 1rem 2.8rem;
+    background-color: transparent;
+    border-radius: 2.9rem;
+    font-size: 2rem;
+    color: #4bccfe;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #4bccfe;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.cta:hover {
+    transform: scale3d(1.1);
+    background-color: #4bccfe;
+    color: white;
+    box-shadow: 0 0 25px solid white;
+}
+
         
 
 #Footer{
-    height: 35vh;
+    height: 40vh;
     width:100%;
     text-align: center;
     padding: 30px 0;
@@ -135,7 +305,8 @@
     font-weight: 600;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 4.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
 }
        
 #Footer p{
@@ -210,14 +381,89 @@
         <a href="/index.html" class="logo"><i class="fa-regular fa-gem"></i>Diamond Lens</a>
         <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
         <nav>
+            <a href="/index.html">Home</a>
         </nav>
         <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
     </header>
 
     <section id="predictor">
-        <h1>
-            Predict Your Diamond Price
-        </h1>
+        <div class="wrapper">
+            <h1>
+                Predict  Diamond  Price
+            </h1>
+            <form id="predictionForm">
+                <div id="input_cell">
+                    <label for="carat">Carat :</label>
+                    <span id="description">*The diamond's physical weight in metric carats</span>
+                    <input type="number" id="carat" placeholder="Enter values between ( 0.05,30.00 )"  required  min="0.05" max="30.00" step="0.01">
+                </div>
+                <div id="input_cell" >
+                    <label for="depth" >Depth :</label>
+                    <span id="description">*The total depth percentage </span>
+                    <input type="number" id="depth" placeholder="Enter values between (30.00,80.00 )"  required  min="30.00" max="80.00" step="0.01">
+                </div>
+                <div id="input_cell" >
+                    <label for="table" >Table :</label>
+                    <span id="description">*The width of the flat top of the diamond  </span>
+                    <input type="number" id="table" placeholder="Enter values between (20.00,100.00 )"  required  min="20.00" max="100.00" step="0.01">
+                </div>
+                <div id="input_cell" >
+                    <label for="x" >Total Length (mm) :</label>
+                    <input type="number" id="x" placeholder="Enter values between (1.00,20.00 )"  required  min="1.00" max="20.00" step="0.01">
+                </div>
+                <div id="input_cell" >
+                    <label for="y" >Total Width (mm) :</label>
+                    <input type="number" id="y" placeholder="Enter values between (1.00,70.00 )"  required  min="1.00" max="70.00" step="0.01">
+                </div>
+                <div id="input_cell" >
+                    <label for="z" >Total height (mm) :</label>
+                    <input type="number" id="z" placeholder="Enter values between (1.00,40.00 )"  required  min="1.00" max="40.00" step="0.01">
+                </div>
+                <div id="Categ_fit">
+                    <label for="cut">Cut :</label>
+                    <span id="description"><a href="https://www.diamonds.pro/education/cuts/" target="_blank" style="color: rgb(176, 178, 180);text-decoration: underline;">Description here</a></span>
+                    <select id="cut" name="subject" required>
+                        <option disabled="disabled" selected="selected" >--Choose a Cut Quality</option> 
+                        <option value="Ideal">Ideal</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Very Good">Very Good</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                    </select>
+                </div>
+                <div id="Categ_fit">
+                    <label for="color">Color :</label>
+                    <span id="description"><a href="https://www.diamonds.pro/education/color/" target="_blank" style="color: rgb(176, 178, 180);text-decoration: underline;">Description here</a></span>
+                    <select id="color" name="subject" required >
+                        <option disabled="disabled" selected="selected" >--Choose a Color Quality</option>
+                        <option value="D">D (the best)</option>
+                        <option value="E">E </option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                    </select>
+                </div>
+                <div id="Categ_fit">
+                    <label for="clarity">Clarity :</label>
+                    <span id="description"><a href="https://www.diamonds.pro/education/clarity/" target="_blank" style="color: rgb(176, 178, 180);text-decoration: underline;" >Description here</a></span>
+                    <select id="clarity" name="subject" required>
+                        <option disabled="disabled" selected="selected">--Choose a Clarity Quality</option>
+                        <option value="I1">I1 (the worst)</option>
+                        <option value="SI1">SI1</option>
+                        <option value="SI2">SI2</option>
+                        <option value="VS1">VS1</option>
+                        <option value="VS2">VS2</option>
+                        <option value="VVS1">VVS1</option>
+                        <option value="VVS2">VVS2</option>
+                        <option value="IF">IF (the best)</option>
+                    </select>
+                </div>
+            </form>
+            <button type="button" class="cta" onclick="submitForm()">Predict Price</button>
+
+        </div>
         
     </section>
 
@@ -234,7 +480,7 @@
            </div>
         </p>
         <p class="h">
-            © 2024 Diamond Lens. Made by <a href="https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;" sty>I.BZIZ</a> and <a href="https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;">Y.AABBAD.</a>
+            © 2024 Diamond Lens. Made by <a href="https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;" >I.BZIZ</a> and <a href="https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: aliceblue;text-decoration: underline;">Y.AABBAD.</a>
         </p>
     </section>
 
