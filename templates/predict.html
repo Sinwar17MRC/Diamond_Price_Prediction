@@ -123,7 +123,7 @@
         #predictor{
             width: 100%;
             height: calc(100vh - 8rem); /* Subtract header height */
-            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/diamond-industry-1-2650120503.jpg');
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{url_for('static', filename='images/diamond-industry-1-2650120503.jpg')}}");
             background-position: center;
             margin-top: 8rem;
             background-size: cover;
@@ -482,7 +482,7 @@
                 <div id="Categ_fit">
                     <label for="cut">Cut :</label>
                     <span id="description"><a href="https://www.diamonds.pro/education/cuts/" target="_blank" style="color: rgb(176, 178, 180);text-decoration: underline;">Description here</a></span>
-                    <select id="cut" name="subject" required>
+                    <select id="cut"  required>
                         <option disabled="disabled" selected="selected" >--Choose a Cut Quality</option> 
                         <option value="Ideal">Ideal</option>
                         <option value="Premium">Premium</option>
@@ -495,7 +495,7 @@
                 <div id="Categ_fit">
                     <label for="color">Color :</label>
                     <span id="description"><a href="https://www.diamonds.pro/education/color/" target="_blank" style="color: rgb(176, 178, 180);text-decoration: underline;">Description here</a></span>
-                    <select id="color" name="subject" required >
+                    <select id="color"  required >
                         <option disabled="disabled" selected="selected" >--Choose a Color Quality</option>
                         <option value="D">D (the best)</option>
                         <option value="E">E </option>
@@ -510,7 +510,7 @@
                 <div id="Categ_fit">
                     <label for="clarity">Clarity :</label>
                     <span id="description"><a href="https://www.diamonds.pro/education/clarity/" target="_blank" style="color: rgb(176, 178, 180);text-decoration: underline;" >Description here</a></span>
-                    <select id="clarity" name="subject" required>
+                    <select id="clarity"  required>
                         <option disabled="disabled" selected="selected">--Choose a Clarity Quality</option>
                         <option value="I1">I1 (the worst)</option>
                         <option value="SI1">SI1</option>
@@ -628,7 +628,7 @@
     const result = await response.json();
 
     // Display prediction in modal
-    document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: ${result.prediction}`;
+    document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: ${response}`;
     document.getElementById('modal').style.display = 'block';
     document.getElementById('modal-overlay').style.display = 'block';
 }

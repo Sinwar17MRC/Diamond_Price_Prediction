@@ -128,7 +128,7 @@
         #home {
             width: 100%;
             height: calc(100vh - 8rem); /* Subtract header height */
-            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/Diamond-Industry-Statistics-1024x576.png');
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{url_for('static',filename='images/DM.png')}}");
             background-position: center;
             margin-top: 8rem;
             background-size: cover;
@@ -354,7 +354,7 @@
     width: 100%;
     height: 100hv;
     padding: 6rem 8vw 3rem 8vw; 
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/The-Rise-of-Lab-Grown-Diamond-Manufacturers-Revolutionizing-the-Diamond-Industry.webp');
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{url_for('static', filename='images/The-Rise-of-Lab-Grown-Diamond-Manufacturers-Revolutionizing-the-Diamond-Industry.webp')}}");
     background-position: center;
     background-size: cover;
     display: flex;
@@ -392,7 +392,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('images/pexels-joshsorenson-1054397.jpg');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url("{{url_for('static',filename='images/pexels-joshsorenson-1054397.jpg')}}");
     background-size: cover;
     color: #EEE1C6;
     box-shadow: 60px 5px 15px rgba(0, 0, 0, 0.2);
@@ -400,11 +400,11 @@
 }
 
 .Containers_cards:nth-child(2) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('images/АЛМАЗ\ \(1\).jpeg');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url("{{url_for('static',filename='images/8dd77d30d655f3e86c77e872ecfee432.jpg')}}");
 }
 
 .Containers_cards:nth-child(3) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('images/pexels-mikhail-nilov-7988086.jpg')
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url("{{url_for('static',filename='images/pexels-mikhail-nilov-7988086.jpg')}}");
 }
 .Containers_cards:hover {
     transform: scale(1.05); /* Smoothly scales card on hover */
@@ -602,7 +602,7 @@
             <div class="Containers_cards">
                 <h2>Learn More</h2>
                 <p>Learn more about The Dataset, the features analysis and more</p>
-                <a href="/Modèle de prédiction des prix du diamant final[1].html" target="_blank"><button class="cta_n">Learn More</button></a>
+                <a href="{{url_for('static', filename='Modèledeprédictiondesprixdudiamantfinal[1].html')}}" target="_blank"><button class="cta_n">Learn More</button></a>
             </div>
         </div>
     </section>
@@ -632,7 +632,7 @@
                 <p> For a closer look on the training process , you can click the button below.
                     Fill free to contact us for any remarque or idea for Enhancements 
                 </p>
-                <a href="/Modèle de prédiction des prix du diamant final[1].html" target="_blank"><button class="cta">Discover</button></a>
+                <a href="{{url_for('static', filename='Modèledeprédictiondesprixdudiamantfinal[1].html')}}" target="_blank"><button class="cta">Discover</button></a>
             </div>
         </div>
         </div> 

@@ -39,9 +39,9 @@ def predict():
     output = prediction[0]
 
     original_prediction = inv_boxcox(output, Lamda)
-
+    response=original_prediction
     # Return the prediction as a JSON response
-    return jsonify(prediction=original_prediction)
+    return jsonify(response)
 
 
 
