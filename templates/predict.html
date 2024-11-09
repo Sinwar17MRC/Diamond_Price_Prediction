@@ -204,6 +204,21 @@
     appearance: none;
 }
 
+
+/* Style placeholder text */
+select::placeholder {
+    font-size: 14px; /* Adjust to desired font size */
+    color: red; /* A lighter color for the placeholder text */
+    text-align: center; /* Optional: Center the placeholder text */
+}
+
+/* Add styles to the select fields as well to make them look consistent */
+select {
+    font-size: 16px; /* Default font size for the select options */
+    padding: 8px; /* Adjust padding for better appearance */
+}
+
+
         #input_cell input::placeholder{
             color: rgb(187, 192, 197);
             font-size: 1.3rem;
@@ -427,6 +442,11 @@
                 display: none;
             }
         }
+/* Style for invalid select dropdown */
+/* Style for invalid select dropdown */
+select.invalid {
+    border: 2px solid red; /* Add a red border when the field is invalid */
+}
 
     </style>
 </head>
@@ -490,7 +510,7 @@
                         <option value="Good">Good</option>
                         <option value="Fair">Fair</option>
                     </select>
-                    <small class="error-message" id="cut-error"></small>
+                    <span id="cut-error" class="error-message"></span>
                 </div>
                 <div id="Categ_fit">
                     <label for="color">Color :</label>
@@ -505,7 +525,7 @@
                         <option value="I">I</option>
                         <option value="J">J</option>
                     </select>
-                    <small class="error-message" id="color-error"></small>
+                    <span id="color-error" class="error-message"></span>
                 </div>
                 <div id="Categ_fit">
                     <label for="clarity">Clarity :</label>
@@ -521,7 +541,7 @@
                         <option value="VVS2">VVS2</option>
                         <option value="IF">IF (the best)</option>
                     </select>
-                    <small class="error-message" id="clarity-error"></small>
+                    <span id="clarity-error" class="error-message"></span>
                 </div>
             </form>
             <button type="button" class="cta" onclick="submitForm()">Predict Price</button>
@@ -553,101 +573,124 @@
          <p id="prediction-result"></p>
          <button id="close-btn">Close</button>
      </div>
- 
+
+
      <script>
-        function validateForm() {
-    let isValid = true;
-
-    // Define min and max limits for each numerical field
-    const fields = [
-        { id: 'carat', min: 0.05, max: 30.00 },
-        { id: 'depth', min: 30.00, max: 80.00 },
-        { id: 'table', min: 20.00, max: 100.00 },
-        { id: 'x', min: 1.00, max: 20.00 },
-        { id: 'y', min: 1.00, max: 70.00 },
-        { id: 'z', min: 1.00, max: 40.00 }
-    ];
-
-    // Validate each numerical field
-    fields.forEach(field => {
-        const inputElement = document.getElementById(field.id);
-        const errorElement = document.getElementById(`${field.id}-error`);
-        const value = parseFloat(inputElement.value);
-
-        // Check if the value is within the specified range
-        if (value < field.min || value > field.max || isNaN(value)) {
-            isValid = false;
-            errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
-            inputElement.classList.add("input-error"); // Optionally add a CSS class for styling errors
-        } else {
-            errorElement.textContent = ''; // Clear any existing error message
-            inputElement.classList.remove("input-error");
-        }
-    });
-
-    // Validate each categorical field
-    const categoricalFields = [
-        { id: 'cut', errorId: 'cut-error', placeholder: '--Choose a Cut Quality' },
-        { id: 'color', errorId: 'color-error', placeholder: '--Choose a Color Quality' },
-        { id: 'clarity', errorId: 'clarity-error', placeholder: '--Choose a Clarity Quality' }
-    ];
-
-    categoricalFields.forEach(field => {
-        const selectElement = document.getElementById(field.id);
-        const errorElement = document.getElementById(field.errorId);
-
-        // Check if a valid option has been selected (i.e., not the placeholder)
-        if (selectElement.value === '' || selectElement.value === field.placeholder) {
-            isValid = false;
-            errorElement.textContent = `Please select a valid ${field.id}.`;
-            selectElement.classList.add("input-error");
-        } else {
-            errorElement.textContent = ''; // Clear any existing error message
-            selectElement.classList.remove("input-error");
-        }
-    });
-
-    return isValid; // Only allow form submission if all fields are valid
-}
-    async function submitForm() {
-    // Validate the form
-    if (!validateForm()) {
+        async function submitForm() {
+             if (!validateForm()) {
         alert("Please fix the errors in the form before proceeding.");
         return; // Exit if the form is invalid
     }
+    // Gather form data
+    const data = {
+        'carat': parseFloat(document.getElementById('carat').value),
+        'depth': parseFloat(document.getElementById('depth').value),
+        'table': parseFloat(document.getElementById('table').value),
+        'x': parseFloat(document.getElementById('x').value),
+        'y': parseFloat(document.getElementById('y').value),
+        'z': parseFloat(document.getElementById('z').value),
+        'cut': document.getElementById('cut').value,
+        'color': document.getElementById('color').value,
+        'clarity': document.getElementById('clarity').value
+    };
 
-    // Get form data if the form is valid
-    const formData = new FormData(document.getElementById('predictionForm'));
+    try {
+        // Send data to the Flask API
+        const response = await fetch('/predict', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
 
-    // Send data to the Flask API
-    const response = await fetch('/predict', {
-        method: 'POST',
-        body: formData
-    });
+        // Parse the JSON response
+        const result = await response.json();
 
-    const result = await response.json();
-
-    // Display prediction in modal
-    document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: ${response}`;
-    document.getElementById('modal').style.display = 'block';
-    document.getElementById('modal-overlay').style.display = 'block';
+        // Display prediction in the modal
+        document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: $${result.predicted_value}`;
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById('modal-overlay').style.display = 'block';
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
-        // Close modal button
-        document.getElementById('close-btn').addEventListener('click', function() {
-            document.getElementById('modal').style.display = 'none';
-            document.getElementById('modal-overlay').style.display = 'none';
-        });
-    
-        // Toggle navigation menu
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleButton = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav');
+// Close modal button
+document.getElementById('close-btn').addEventListener('click', function() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('modal-overlay').style.display = 'none';
+});
 
-            toggleButton.addEventListener('click', () => {
-                nav.classList.toggle('active');
+// Toggle navigation menu
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    toggleButton.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+});
+
+        function validateForm() {
+            let isValid = true;
+
+            // Define min and max limits for each numerical field
+            const fields = [
+                {id: 'carat', min: 0.05, max: 30.00},
+                {id: 'depth', min: 30.00, max: 80.00},
+                {id: 'table', min: 20.00, max: 100.00},
+                {id: 'x', min: 1.00, max: 20.00},
+                {id: 'y', min: 1.00, max: 70.00},
+                {id: 'z', min: 1.00, max: 40.00}
+            ];
+
+            // Validate each numerical field
+            fields.forEach(field => {
+                const inputElement = document.getElementById(field.id);
+                const errorElement = document.getElementById(`${field.id}-error`);
+                const value = parseFloat(inputElement.value);
+
+                // Check if the value is within the specified range
+                if (value < field.min || value > field.max || isNaN(value)) {
+                    isValid = false;
+                    errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
+                    inputElement.classList.add("input-error"); // Optionally add a CSS class for styling errors
+                } else {
+                    errorElement.textContent = ''; // Clear any existing error message
+                    inputElement.classList.remove("input-error");
+                }
             });
-        });
+
+            // Validate each categorical field
+const categoricalFields = [
+    {id: 'cut', errorId: 'cut-error', placeholder: '--Choose a Cut Quality', errorMessage: 'Please select a valid Cut Quality.'},
+    {id: 'color', errorId: 'color-error', placeholder: '--Choose a Color Quality', errorMessage: 'Please select a valid Color Quality.'},
+    {id: 'clarity', errorId: 'clarity-error', placeholder: '--Choose a Clarity Quality', errorMessage: 'Please select a valid Clarity Quality.'}
+];
+
+categoricalFields.forEach(field => {
+    const selectElement = document.getElementById(field.id);
+    const errorMessage = document.getElementById(field.errorId);
+
+    // Validate when the user selects a value
+    selectElement.addEventListener('change', () => {
+        if (selectElement.value === "") {
+            // Display a specific error message for each field
+            errorMessage.innerText = field.errorMessage;
+            errorMessage.classList.add("show");
+            selectElement.classList.add("invalid"); // Add invalid class to the select field
+        } else {
+            // Clear the error message and invalid class
+            errorMessage.classList.remove("show");
+            selectElement.classList.remove("invalid");
+        }
+    });
+});
+
+
+            return isValid; // Only allow form submission if all fields are valid
+
+        }
+
     </script>
 </body>
 </html>
