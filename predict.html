@@ -361,6 +361,16 @@
             cursor: pointer;
         }
 
+        .error-message {
+        color: red;
+        font-size: 0.9rem;
+        display: block;
+    }
+
+    /* Optional styling for inputs with errors */
+    .input-error {
+        border-color: red;
+    }
 
     
 @media (max-width: 995px) {
@@ -410,6 +420,7 @@
                 display: none;
             }
         }
+
     </style>
 </head>
 <body>
@@ -432,28 +443,34 @@
                     <label for="carat">Carat :</label>
                     <span id="description">*The diamond's physical weight in metric carats</span>
                     <input type="number" id="carat" placeholder="Enter values between ( 0.05,30.00 )"  required  min="0.05" max="30.00" step="0.01">
+                    <small class="error-message" id="carat-error"></small>
                 </div>
                 <div id="input_cell" >
                     <label for="depth" >Depth :</label>
                     <span id="description">*The total depth percentage </span>
                     <input type="number" id="depth" placeholder="Enter values between (30.00,80.00 )"  required  min="30.00" max="80.00" step="0.01">
+                    <small class="error-message" id="depth-error"></small>
                 </div>
                 <div id="input_cell" >
                     <label for="table" >Table :</label>
                     <span id="description">*The width of the flat top of the diamond  </span>
                     <input type="number" id="table" placeholder="Enter values between (20.00,100.00 )"  required  min="20.00" max="100.00" step="0.01">
+                    <small class="error-message" id="table-error"></small>
                 </div>
                 <div id="input_cell" >
                     <label for="x" >Total Length (mm) :</label>
                     <input type="number" id="x" placeholder="Enter values between (1.00,20.00 )"  required  min="1.00" max="20.00" step="0.01">
+                    <small class="error-message" id="x-error"></small>
                 </div>
                 <div id="input_cell" >
                     <label for="y" >Total Width (mm) :</label>
                     <input type="number" id="y" placeholder="Enter values between (1.00,70.00 )"  required  min="1.00" max="70.00" step="0.01">
+                    <small class="error-message" id="y-error"></small>
                 </div>
                 <div id="input_cell" >
                     <label for="z" >Total height (mm) :</label>
                     <input type="number" id="z" placeholder="Enter values between (1.00,40.00 )"  required  min="1.00" max="40.00" step="0.01">
+                    <small class="error-message" id="z-error"></small>
                 </div>
                 <div id="Categ_fit">
                     <label for="cut">Cut :</label>
@@ -528,25 +545,63 @@
      </div>
  
      <script>
-        
-        // JavaScript function to handle form submission and display the modal
-        async function submitForm() {
-            // Get form data
-            const formData = new FormData(document.getElementById('predictionForm'));
+        function validateForm() {
+        let isValid = true;
 
-            // Send data to the Flask API
-            const response = await fetch('/predict', {
-                method: 'POST',
-                body: formData
-            });
+        // Define min and max limits for each field
+        const fields = [
+            { id: 'carat', min: 0.05, max: 30.00 },
+            { id: 'depth', min: 30.00, max: 80.00 },
+            { id: 'table', min: 20.00, max: 100.00 },
+            { id: 'x', min: 1.00, max: 20.00 },
+            { id: 'y', min: 1.00, max: 70.00 },
+            { id: 'z', min: 1.00, max: 40.00 }
+        ];
 
-            const result = await response.json();
+        // Loop over each field and validate the value
+        fields.forEach(field => {
+            const inputElement = document.getElementById(field.id);
+            const errorElement = document.getElementById(`${field.id}-error`);
 
-            // Display prediction in modal
-            document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: ${result.prediction}`;
-            document.getElementById('modal').style.display = 'block';
-            document.getElementById('modal-overlay').style.display = 'block';
-        }
+            const value = parseFloat(inputElement.value);
+
+            // Check if the value is within the specified range
+            if (value < field.min || value > field.max || isNaN(value)) {
+                isValid = false;
+                errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
+                inputElement.classList.add("input-error"); // Optionally add a CSS class for styling errors
+            } else {
+                errorElement.textContent = ''; // Clear any existing error message
+                inputElement.classList.remove("input-error");
+            }
+        });
+
+        return isValid; // Only allow form submission if all fields are valid
+    }
+
+    async function submitForm() {
+    // Validate the form
+    if (!validateForm()) {
+        alert("Please fix the errors in the form before proceeding.");
+        return; // Exit if the form is invalid
+    }
+
+    // Get form data if the form is valid
+    const formData = new FormData(document.getElementById('predictionForm'));
+
+    // Send data to the Flask API
+    const response = await fetch('/predict', {
+        method: 'POST',
+        body: formData
+    });
+
+    const result = await response.json();
+
+    // Display prediction in modal
+    document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: ${result.prediction}`;
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal-overlay').style.display = 'block';
+}
 
         // Close modal button
         document.getElementById('close-btn').addEventListener('click', function() {
