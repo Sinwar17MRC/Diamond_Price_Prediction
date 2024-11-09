@@ -163,7 +163,7 @@
             font-size: 1.5rem;
             color: #919090;
             left: 30px;
-            top: -10px;
+            top: -0.5px;
         }
 
         #input_cell{
@@ -214,7 +214,7 @@
             position: relative;
             font-size: 2.2rem;
             color:antiquewhite;
-            bottom: 10px;
+            bottom: 1px;
             left: 20px;
         }
 
@@ -245,7 +245,7 @@
     outline: none;
     border: 2px solid rgba(255,255,255,.2);
     border-radius: 60px;
-    padding: 2px 4px 6px 17px;
+    padding: 01px 10px;
 }
 
 
@@ -253,9 +253,13 @@
     font-size: 2.2rem;
     color: antiquewhite;
     font-family: 'Montserrat', sans-serif;
-    bottom: 10px;
+    bottom: 0.5px;
     left: 20px;
     position: relative;
+}
+
+#Categ_fit.select-error select {
+    border-color: red; /* Style for error state */
 }
 
 #Categ_fit option{
@@ -363,13 +367,16 @@
 
         .error-message {
         color: red;
-        font-size: 0.9rem;
+        font-size: 01.1rem;
         display: block;
+        margin-right: 20rem;
     }
 
-    /* Optional styling for inputs with errors */
+   
     .input-error {
         border-color: red;
+        font-size: 4rem;
+        margin-right: 6rem;
     }
 
     
@@ -483,6 +490,7 @@
                         <option value="Good">Good</option>
                         <option value="Fair">Fair</option>
                     </select>
+                    <small class="error-message" id="cut-error"></small>
                 </div>
                 <div id="Categ_fit">
                     <label for="color">Color :</label>
@@ -497,6 +505,7 @@
                         <option value="I">I</option>
                         <option value="J">J</option>
                     </select>
+                    <small class="error-message" id="color-error"></small>
                 </div>
                 <div id="Categ_fit">
                     <label for="clarity">Clarity :</label>
@@ -512,6 +521,7 @@
                         <option value="VVS2">VVS2</option>
                         <option value="IF">IF (the best)</option>
                     </select>
+                    <small class="error-message" id="clarity-error"></small>
                 </div>
             </form>
             <button type="button" class="cta" onclick="submitForm()">Predict Price</button>
@@ -546,39 +556,59 @@
  
      <script>
         function validateForm() {
-        let isValid = true;
+    let isValid = true;
 
-        // Define min and max limits for each field
-        const fields = [
-            { id: 'carat', min: 0.05, max: 30.00 },
-            { id: 'depth', min: 30.00, max: 80.00 },
-            { id: 'table', min: 20.00, max: 100.00 },
-            { id: 'x', min: 1.00, max: 20.00 },
-            { id: 'y', min: 1.00, max: 70.00 },
-            { id: 'z', min: 1.00, max: 40.00 }
-        ];
+    // Define min and max limits for each numerical field
+    const fields = [
+        { id: 'carat', min: 0.05, max: 30.00 },
+        { id: 'depth', min: 30.00, max: 80.00 },
+        { id: 'table', min: 20.00, max: 100.00 },
+        { id: 'x', min: 1.00, max: 20.00 },
+        { id: 'y', min: 1.00, max: 70.00 },
+        { id: 'z', min: 1.00, max: 40.00 }
+    ];
 
-        // Loop over each field and validate the value
-        fields.forEach(field => {
-            const inputElement = document.getElementById(field.id);
-            const errorElement = document.getElementById(`${field.id}-error`);
+    // Validate each numerical field
+    fields.forEach(field => {
+        const inputElement = document.getElementById(field.id);
+        const errorElement = document.getElementById(`${field.id}-error`);
+        const value = parseFloat(inputElement.value);
 
-            const value = parseFloat(inputElement.value);
+        // Check if the value is within the specified range
+        if (value < field.min || value > field.max || isNaN(value)) {
+            isValid = false;
+            errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
+            inputElement.classList.add("input-error"); // Optionally add a CSS class for styling errors
+        } else {
+            errorElement.textContent = ''; // Clear any existing error message
+            inputElement.classList.remove("input-error");
+        }
+    });
 
-            // Check if the value is within the specified range
-            if (value < field.min || value > field.max || isNaN(value)) {
-                isValid = false;
-                errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
-                inputElement.classList.add("input-error"); // Optionally add a CSS class for styling errors
-            } else {
-                errorElement.textContent = ''; // Clear any existing error message
-                inputElement.classList.remove("input-error");
-            }
-        });
+    // Validate each categorical field
+    const categoricalFields = [
+        { id: 'cut', errorId: 'cut-error', placeholder: '--Choose a Cut Quality' },
+        { id: 'color', errorId: 'color-error', placeholder: '--Choose a Color Quality' },
+        { id: 'clarity', errorId: 'clarity-error', placeholder: '--Choose a Clarity Quality' }
+    ];
 
-        return isValid; // Only allow form submission if all fields are valid
-    }
+    categoricalFields.forEach(field => {
+        const selectElement = document.getElementById(field.id);
+        const errorElement = document.getElementById(field.errorId);
 
+        // Check if a valid option has been selected (i.e., not the placeholder)
+        if (selectElement.value === '' || selectElement.value === field.placeholder) {
+            isValid = false;
+            errorElement.textContent = `Please select a valid ${field.id}.`;
+            selectElement.classList.add("input-error");
+        } else {
+            errorElement.textContent = ''; // Clear any existing error message
+            selectElement.classList.remove("input-error");
+        }
+    });
+
+    return isValid; // Only allow form submission if all fields are valid
+}
     async function submitForm() {
     // Validate the form
     if (!validateForm()) {
@@ -609,7 +639,7 @@
             document.getElementById('modal-overlay').style.display = 'none';
         });
     
-    
+        // Toggle navigation menu
         document.addEventListener('DOMContentLoaded', () => {
             const toggleButton = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');

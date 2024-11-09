@@ -6,11 +6,12 @@ from scipy.special import inv_boxcox
 
 app = Flask(__name__)
 
-model = joblib.load('/model_Optimal.joblib')
-scaler = joblib.load('/scaler.joblib')
+scaler = joblib.load('scaler.joblib')
+model = joblib.load('model_Optimal.joblib')
+
 columns = ['cut', 'color', 'clarity']
 encoders = {col: joblib.load(f"{col}_encoder.joblib") for col in columns}
-Lamda = joblib.load('/Lamda bc.joblib')
+Lamda = joblib.load('Lamda_bc.joblib')
 
 
 @app.route('/')
