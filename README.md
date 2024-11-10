@@ -97,7 +97,7 @@ The app features a responsive front end, crafted with a user-friendly interface,
 
 For questions, feedback, or contributions, please contact:
 
-- **Imad Bziz** - [LinkedIn]([https://www.linkedin.com/in/imad-bziz-97aa80285](https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
+- **Imad Bziz** - [LinkedIn](https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_ap)
 - **Youssef Aabbad** - [LinkedIn](https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 
