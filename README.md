@@ -33,7 +33,7 @@ The app features a responsive front end, crafted with a user-friendly interface,
 ## Usage
 
 1. **Accessing the App**:
-   - Once the application is running, open your browser and navigate to `http://127.0.0.1:5000`.
+   - Once the application is running, open your browser and navigate to `(https://app-486638708818.europe-west1.run.app/)`.
 2. **Interacting with the home Page**:
    - After opening the link, you're now in the ome page.
    - You can access to a page explaining all about the diamonds and how to buy one through the **Read more** button.
