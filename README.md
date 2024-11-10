@@ -18,6 +18,13 @@ The app features a responsive front end, crafted with a user-friendly interface,
 - [License](#license)
 - [Contact Information](#contact-information)
 
-  ##Features
-  -[User input]:Interface for the user to enter the specifications of the diamond(geometry,physical weight,color)
-  -[Prediction]
+ ## Features
+- **User Input**: Interface for the user to enter the specifications of the diamond (geometry, physical weight, color).
+- **Prediction**: Estimation of the diamond's price based on the given data.
+- **Informative Resources**: Links to resources on how to choose a diamond for rings and evaluate diamond quality.
+- **Shopping Experience**: Includes a link to Blue Nile, a specialized shop in the gems market.
+- **Educational Resources**: The app provides insights into the machine learning algorithm used for price prediction.
+- **Stability Check**: Allows users to check the stability of the server to ensure prediction functionality is accessible.
+
+
+  
