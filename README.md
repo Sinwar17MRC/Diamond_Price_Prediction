@@ -9,13 +9,9 @@ The app features a responsive front end, crafted with a user-friendly interface,
 - [Technologies Used](#technologies-used)
 - [Installation and Setup](#installation-and-setup)
 - [Usage](#usage)
-- [Dataset](#dataset)
-- [Model Training and Evaluation](#model-training-and-evaluation)
-- [API Endpoints](#api-endpoints)
+- [Dataset and Model Training](#Dataset-and-Model-Training)
 - [Frontend Design](#frontend-design)
 - [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact Information](#contact-information)
 
  ## Features
@@ -102,7 +98,8 @@ The app features a responsive front end, crafted with a user-friendly interface,
 For questions, feedback, or contributions, please contact:
 
 - **Imad Bziz** - [LinkedIn]([https://www.linkedin.com/in/imad-bziz-97aa80285](https://www.linkedin.com/in/imad-bziz-97aa80285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
-- **Youssef Aabbad** - [LinkedIn]([https://www.linkedin.com/in/youssef-aabbad-60b1a9297](https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
+- **Youssef Aabbad** - [LinkedIn](https://www.linkedin.com/in/youssef-aabbad-60b1a9297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+
 
 
 
