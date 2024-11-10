@@ -26,5 +26,13 @@ The app features a responsive front end, crafted with a user-friendly interface,
 - **Educational Resources**: The app provides insights into the machine learning algorithm used for price prediction.
 - **Stability Check**: Allows users to check the stability of the server to ensure prediction functionality is accessible.
 
+## Technologies Used
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Flask (for serving the machine learning model)
+- **Python Libraries**: Scikit-learn, Pandas, NumPy
+- **Deployment**: Docker, Google Cloud Service
+- **Version Control**: Git, GitHub
+
 
   
