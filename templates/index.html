@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/diamond.png">
+    <link rel="icon" type ="image/png" href="/static/images/dia.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/76dff40395.js" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
             align-items: center;
             z-index: 100;
             box-shadow: 0.5px 0.5px 15px rgb(97, 198, 223);
-            height: 8rem;  /* Set the height of the header */
+            height: 8.5rem;  /* Set the height of the header */
         }
 
         .logo {
@@ -121,7 +121,7 @@
         }
 
         #home, #Services, #How, #Footer {
-    scroll-margin-top: 8rem; /* Ajuste cette valeur si nécessaire */
+    scroll-margin-top: 7rem; /* Ajuste cette valeur si nécessaire */
         }
 
         /* Content section below the header with background image */
@@ -198,8 +198,8 @@
 
         #home a.blue:hover{
             transform: scale(1.1);
-            background-color: bisque;
-            color: #4bccfe;
+            background-color: #4bccfe;
+            color: blanchedalmond;
             box-shadow: 0 0 25px solid white;
         }
 
@@ -228,19 +228,21 @@
         }
 
         #How {
-    background-color: blanchedalmond;
-    padding: 5vw 8vw 0 8vw;
-    text-align: center;
-    height: 80vh;
-    width: 106%;
-}
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{url_for('static',filename='images/AZZ.jpg')}}");
+            padding: 5vw 8vw 0 8vw;
+            text-align: center;
+            height: 80vh;
+            width: 106%;
+        }
 
 #How h1 {
+    position: relative;
     margin-top: -1rem;
     font-size: 6.5rem;
+    margin-right: 100px;
     font-family: 'Playfair Display', serif;
-    color: #1a1e34; /* Blue Jeans color */
-    font-weight: 800;
+    color: #f7f8ff; /* Blue Jeans color */
+    font-weight: 600;
     margin-bottom: 8rem; /* Space below the heading */
 }
 
@@ -472,10 +474,11 @@
 
 
 #modal-content {
-    background: white;
-    width: 30%; /* Adjust width to a third of the section */
+    background: blanchedalmond;
+    width: 35%;
+    height: 30vh; /* Adjust width to a third of the section */
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 40px;
     text-align: center;
 }
 
@@ -489,22 +492,26 @@
 
 /* Status message styling */
 #api-status-text {
-    font-size: 18px;
-}
+    font-size: 3rem;
+    margin-top: 6rem;
+    font-family: "Good vibes", cursive;
 
-.status-stable {
-    color: green; /* Stable text in green */
-}
-
-.status-unstable {
-    color: red; /* Unstable text in red */
 }
 
 /* Close button styling */
 #modal-close-btn {
-    margin-top: 10px;
-    padding: 5px 10px;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    padding: 17px 22px;
+    background-color: #99c2f0;
+    color: white;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+}
+
+#ck {
+    margin-right: 8rem;
 }
     
 @media (max-width: 995px) {
@@ -593,7 +600,7 @@
     
     <section id="home">
         <h1>Welcome to Diamond Lens</h1>
-        <p> Discover powerful insights, track industry trends, and make informed predictions in the diamond market. 
+        <p> Discover powerful insights, track industry trends, and make informed predictions in the diamond market, see how much your gem is worth using latest technologies of MachineLearning algorithms. 
             Diamond Lens is your gateway to valuable analytics and tools, tailored for enthusiasts, investors, and professionals alike.</p>
         <div class="btn">
             <a class="blue" href="https://www.diamonds.pro/education/diamond-buying-guide/" target="_blank">Read More</a>
@@ -607,7 +614,7 @@
             <div class="Containers_cards">
                 <h2>Status</h2>
                 <p>Test our Api's status to ensure the service is stable</p>
-                <button class="cta_n" onclick="checkApiStatus()">Check</button>
+                <button id="ck" class="cta_n" onclick="checkApiStatus()">Check</button>
             </div>
             <div class="Containers_cards">
                 <h2>Predict</h2>
@@ -617,7 +624,7 @@
             <div class="Containers_cards">
                 <h2>Learn More</h2>
                 <p>Learn more about The Dataset, the features analysis and more</p>
-                <a href="{{url_for('static', filename='Modèledeprédictiondesprixdudiamantfinal[1].html')}}" target="_blank"><button class="cta_n">Learn More</button></a>
+                <a href="{{url_for('static', filename='12U.html')}}" target="_blank"><button class="cta_n">Learn More</button></a>
             </div>
         </div>
     </section>
@@ -629,7 +636,7 @@
             <div class="BOXES">
                 <i class="fa-solid fa-microchip"></i>
                 <h3>Machine Learning </h3>
-                <p> Using all the techniques and methods we have learned in the Machine Learning Course, we used an Elastic-Net regressor model to predict the price of a Diamond based on 10 variables with an Accuracy of 90%</p>
+                <p> Using all the techniques and methods we have learned in the Machine Learning Course, we used an Elastic-Net regressor model to predict the price of a Diamond based on 10 variables with an Accuracy of 87%</p>
             </div>
         </div>
         <div class="way">
@@ -647,7 +654,7 @@
                 <p> For a closer look on the training process , you can click the button below.
                     Fill free to contact us for any remarque or idea for Enhancements 
                 </p>
-                <a href="{{url_for('static', filename='Modèledeprédictiondesprixdudiamantfinal[1].html')}}" target="_blank"><button class="cta">Discover</button></a>
+                <a href="{{url_for('static', filename='12U.html')}}" target="_blank"><button class="cta">Discover</button></a>
             </div>
         </div>
         </div> 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/diamond.png">
+    <link rel="icon" type ="image/png" href="/static/images/dia.png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/76dff40395.js" crossorigin="anonymous"></script>
@@ -13,7 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lilita+One&family=Merienda:wght@300..900&family=Montserrat:wght@500&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lavishly+Yours&family=Lilita+One&family=Merienda:wght@300..900&family=Montserrat:wght@500&display=swap');
         * {
             box-sizing: border-box;
             margin: 0;
@@ -51,7 +51,7 @@
             align-items: center;
             z-index: 100;
             box-shadow: 0.5px 0.5px 15px rgb(97, 198, 223);
-            height: 8rem;  /* Set the height of the header */
+            height: 8.5rem;  /* Set the height of the header */
         }
 
         .logo {
@@ -174,7 +174,15 @@
             
         }
 
-       
+        .invalid {
+    border: 2px solid red;          /* Red border to indicate an error */
+    background-color: #ffe6e6;      /* Light red background color */
+    color: #b30000;                 /* Dark red text color, optional */
+}
+
+.invalid::placeholder {
+    color: #ff6666;                 /* Placeholder color changes to a lighter red */
+}     
 
         #input_cell input{
             width: 100%;
@@ -282,13 +290,16 @@ select {
     background:#1a1e34;
 } 
 
+
+
 .cta {
     width:max-content;
+    padding-right: 5rem;
     align-items: center;
     height: 7rem;
     position: relative;
     bottom: 54rem;
-    left: 115rem;
+    left: 100rem;
     display: inline-flex;
     padding: 1rem 2.8rem;
     background-color: transparent;
@@ -309,7 +320,13 @@ select {
     box-shadow: 0 0 25px solid white;
 }
 
-        
+#gem{
+    margin-left: 4rem;
+}
+
+.h{
+    margin-bottom: 0.5rem;
+}
 
 #Footer{
     height: 40vh;
@@ -358,95 +375,401 @@ select {
         #modal {
             display: none;
             position: fixed;
+            font-size: 3rem;
+            font-family: "Lavishly Yours", cursive;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
+            color: blanchedalmond;
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{url_for('static', filename='images/diamonda1.jpg')}}");
+            background-image: ;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 18px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            width: 300px;
+            width: 600px;
             text-align: center;
         }
 
         #close-btn {
             margin-top: 10px;
-            padding: 8px 15px;
-            background-color: #007bff;
+            font-size: 1.6rem;
+            padding: 14px 20px;
+            background-color: #99c2f0;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
         }
 
         .error-message {
-        color: red;
-        font-size: 01.1rem;
-        display: block;
-        margin-right: 20rem;
-    }
+    color: red;            /* Sets the error message color to red */
+    font-size: 1.3rem;     /* Adjusts the font size of the error message */
+    margin-top: 0.1rem;
+    margin-left: 2.5rem;    /* Adds space above the error message */
+    display: block;        /* Ensures it takes up full width */
+    font-weight: bold; 
+    animation: fadeIn 0.5s ease-in-out;    /* Makes the text bold for emphasis */
+}
 
+select.invalid {
+    border: 2px solid red; /* Add a red border when the field is invalid */
+}
+
+.invalid {
+    border: 2px solid red; /* Highlights invalid fields with a red border */
+    background-color: #ffe6e6; /* Adds a light red background to the input */
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
    
     .input-error {
-        border-color: red;
+        border-color: rgb(95, 204, 31);
         font-size: 4rem;
         margin-right: 6rem;
     }
 
     
-@media (max-width: 995px) {
-    /* Make the logo smaller and center it */
-            .logo {
-                font-size: 2.5rem;
-                margin-left: 0;
-            }
+/* Responsive Design */
+@media (max-width: 1200px) {
+    /* Header */
+    header {
+        padding: 2rem 5%;
+    }
 
-    /* Show the menu toggle button on mobile */
-            .menu-toggle {
-                display: block;
-                
-            }
+    .logo {
+        font-size: 3.5rem;
+    }
 
-    /* Style the nav and make it a vertical layout when active */
-            nav {
-                display: none;  /* Hide initially */
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 100%;
-                background-color: #1c1717 ;
-                
-                border-left: 3px solid #4bccfe;
-                
-                border-bottom-left-radius: 2rem;
-                padding: 1rem;
-            }
+    nav {
+        margin-right: 5rem;
+    }
 
-    /* Display the nav when it is active */
-            nav.active {
-                display: flex;
-            }
+    nav a {
+        font-size: 2rem;
+        margin-left: 3rem;
+    }
 
-            nav a {
-                display: block;
-                font-size: 2.5rem;
-                margin: 1rem 0;
-                text-align: center;
-                color: #ffffff;
-            }
+    .btn_ctc {
+        margin-right: 0;
+        padding: 1rem 2rem;
+        font-size: 1.8rem;
+    }
 
-    /* Hide the "Contact" button on mobile */
-            .btn_ctc {
-                display: none;
-            }
-        }
-/* Style for invalid select dropdown */
-/* Style for invalid select dropdown */
-select.invalid {
-    border: 2px solid red; /* Add a red border when the field is invalid */
+    /* Wrapper */
+    .wrapper {
+        padding: 4rem 3rem;
+    }
+
+    .wrapper h1 {
+        font-size: 4rem;
+    }
+
+    /* Form Fields */
+    #input_cell, #Categ_fit {
+        width: 80%;
+    }
+
+    #input_cell input, #Categ_fit select {
+        font-size: 1.6rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .cta {
+        font-size: 1.8rem;
+    }
+
+    /* Services Section */
+    #Services h1 {
+        font-size: 5rem;
+    }
+
+    .Containers_cards h2 {
+        font-size: 3.5rem;
+    }
+
+    .Containers_cards p {
+        font-size: 2rem;
+    }
+
+    /* How Section */
+    #How h1 {
+        font-size: 5rem;
+    }
+
+    .way h3 {
+        font-size: 2.8rem;
+    }
+
+    .way p {
+        font-size: 1.8rem;
+    }
+
+    /* Footer */
+    #Footer h1 {
+        font-size: 3.5rem;
+    }
+
+    #Footer p {
+        font-size: 1.8rem;
+    }
 }
+
+@media (max-width: 995px) {
+    /* Header */
+    header {
+        padding: 1.5rem 5%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    /* Navigation */
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: #1c1717;
+        border-left: 3px solid #4bccfe;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 2rem;
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    /* Wrapper */
+    .wrapper {
+        width: 95%;
+        padding: 3rem;
+    }
+
+    .wrapper h1 {
+        font-size: 3.5rem;
+    }
+
+    /* Form Fields */
+    #input_cell, #Categ_fit {
+        width: 90%;
+    }
+
+    #input_cell input, #Categ_fit select {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+
+    .cta {
+        font-size: 1.6rem;
+        padding: 1rem 2rem;
+    }
+
+    /* Services Section */
+    #Services h1 {
+        font-size: 4rem;
+    }
+
+    .Containers_cards h2 {
+        font-size: 3rem;
+    }
+
+    .Containers_cards p {
+        font-size: 1.8rem;
+    }
+
+    /* How Section */
+    #How h1 {
+        font-size: 4rem;
+    }
+
+    .way h3 {
+        font-size: 2.5rem;
+    }
+
+    .way p {
+        font-size: 1.6rem;
+    }
+
+    /* Footer */
+    #Footer h1 {
+        font-size: 3rem;
+    }
+
+    #Footer p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 1rem 3%;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    /* Wrapper */
+    .wrapper {
+        padding: 2rem;
+    }
+
+    .wrapper h1 {
+        font-size: 3rem;
+    }
+
+    /* Form Fields */
+    #input_cell, #Categ_fit {
+        width: 100%;
+    }
+
+    #input_cell input, #Categ_fit select {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .cta {
+        font-size: 1.4rem;
+    }
+
+    /* Services Section */
+    #Services h1 {
+        font-size: 3.5rem;
+    }
+
+    .Containers_cards h2 {
+        font-size: 2.5rem;
+    }
+
+    .Containers_cards p {
+        font-size: 1.6rem;
+    }
+
+    /* How Section */
+    #How h1 {
+        font-size: 3.5rem;
+    }
+
+    .way h3 {
+        font-size: 2.2rem;
+    }
+
+    .way p {
+        font-size: 1.4rem;
+    }
+
+    /* Footer */
+    #Footer h1 {
+        font-size: 2.5rem;
+    }
+
+    #Footer p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    header {
+        padding: 1rem 2%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    /* Wrapper */
+    .wrapper {
+        padding: 1.5rem;
+    }
+
+    .wrapper h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Form Fields */
+    #input_cell, #Categ_fit {
+        width: 100%;
+    }
+
+    #input_cell input, #Categ_fit select {
+        font-size: 1.2rem;
+        padding: 0.6rem;
+    }
+
+    .cta {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    /* Services Section */
+    #Services h1 {
+        font-size: 3rem;
+    }
+
+    .Containers_cards h2 {
+        font-size: 2.2rem;
+    }
+
+    .Containers_cards p {
+        font-size: 1.4rem;
+    }
+
+    /* How Section */
+    #How h1 {
+        font-size: 3rem;
+    }
+
+    .way h3 {
+        font-size: 2rem;
+    }
+
+    .way p {
+        font-size: 1.3rem;
+    }
+
+    /* Footer */
+    #Footer h1 {
+        font-size: 2.5rem;
+    }
+
+    #Footer p {
+        font-size: 1.4rem;
+    }
+}
+
+
+
 
     </style>
 </head>
@@ -455,7 +778,9 @@ select.invalid {
         <a href="{{url_for('home')}}" class="logo"><i class="fa-regular fa-gem"></i>Diamond Lens</a>
         <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
         <nav>
-            <a href="{{url_for('home')}}">Home</a>
+            
+           
+             
         </nav>
         <a href="mailto:imad37.bziz@example.com?subject=Contact%20Request&body=Hello, I would like to get in touch with you." class="btn_ctc">Contact</a>
     </header>
@@ -469,7 +794,7 @@ select.invalid {
                 <div id="input_cell">
                     <label for="carat">Carat :</label>
                     <span id="description">*The diamond's physical weight in metric carats</span>
-                    <input type="number" id="carat" placeholder="Enter values between ( 0.05,30.00 )"  required  min="0.05" max="30.00" step="0.01">
+                    <input type="number" id="carat" placeholder="Enter values between ( 1.00,30.00 )"  required  min="0.05" max="30.00" step="0.01">
                     <small class="error-message" id="carat-error"></small>
                 </div>
                 <div id="input_cell" >
@@ -545,6 +870,8 @@ select.invalid {
                 </div>
             </form>
             <button type="button" class="cta" onclick="submitForm()">Predict Price</button>
+            <a  href="https://www.bluenile.com/diamond-search?CaratFrom=0.23&CaratTo=0.23&Color=E&Clarity=SI2&Cut=Ideal" target="_blank"><button id="gem" class="cta">Buy your Gem!</button></a>
+            
 
         </div>
         
@@ -574,8 +901,42 @@ select.invalid {
          <button id="close-btn">Close</button>
      </div>
 
+     
 
      <script>
+        function checkApiStatus() {
+    // Show the modal and reset status message
+    const modal = document.getElementById('api-status-modal');
+    modal.style.display = 'flex';
+
+    const statusResult = document.getElementById('api-status-text');
+    statusResult.innerText = 'Checking status...';
+    statusResult.classList.remove("status-online", "status-offline");
+
+    // Send GET request to status endpoint
+    fetch('/status')
+        .then(response => {
+            // Wait 2 seconds before displaying the status result
+            setTimeout(() => {
+                if (response.ok) {
+                    statusResult.innerHTML = '<p>The API is stable</p>';
+                    statusResult.classList.add("status-online");
+                } else {
+                    statusResult.innerHTML = '<p>The API is currently down</p>';
+                    statusResult.classList.add("status-offline");
+                }
+            }, 2000);
+        })
+        .catch(() => {
+            // Wait 2 seconds before displaying the error message
+            setTimeout(() => {
+                statusResult.innerHTML = '<p>The API is currently down</p>';
+                statusResult.classList.add("status-offline");
+            }, 2000);
+        });
+}
+
+
         async function submitForm() {
              if (!validateForm()) {
         alert("Please fix the errors in the form before proceeding.");
@@ -584,14 +945,15 @@ select.invalid {
     // Gather form data
     const data = {
         'carat': parseFloat(document.getElementById('carat').value),
+        'cut': document.getElementById('cut').value,
+        'color': document.getElementById('color').value,
+        'clarity': document.getElementById('clarity').value,
         'depth': parseFloat(document.getElementById('depth').value),
         'table': parseFloat(document.getElementById('table').value),
         'x': parseFloat(document.getElementById('x').value),
         'y': parseFloat(document.getElementById('y').value),
-        'z': parseFloat(document.getElementById('z').value),
-        'cut': document.getElementById('cut').value,
-        'color': document.getElementById('color').value,
-        'clarity': document.getElementById('clarity').value
+        'z': parseFloat(document.getElementById('z').value)
+        
     };
 
     try {
@@ -606,7 +968,7 @@ select.invalid {
         const result = await response.json();
 
         // Display prediction in the modal
-        document.getElementById('prediction-result').innerText = `Your Diamond estimated price is: $${result.predicted_value}`;
+        document.getElementById('prediction-result').innerText = `Your Diamond's estimated price is: $${result.predicted_value}`;
         document.getElementById('modal').style.display = 'block';
         document.getElementById('modal-overlay').style.display = 'block';
     } catch (error) {
@@ -630,66 +992,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-        function validateForm() {
-            let isValid = true;
+function validateForm() {
+    let isValid = true;
 
-            // Define min and max limits for each numerical field
-            const fields = [
-                {id: 'carat', min: 0.05, max: 30.00},
-                {id: 'depth', min: 30.00, max: 80.00},
-                {id: 'table', min: 20.00, max: 100.00},
-                {id: 'x', min: 1.00, max: 20.00},
-                {id: 'y', min: 1.00, max: 70.00},
-                {id: 'z', min: 1.00, max: 40.00}
-            ];
+    const fields = [
+        {id: 'carat', min: 1.00, max: 30.00},
+        {id: 'depth', min: 30.00, max: 80.00},
+        {id: 'table', min: 20.00, max: 100.00},
+        {id: 'x', min: 1.00, max: 20.00},
+        {id: 'y', min: 1.00, max: 70.00},
+        {id: 'z', min: 1.00, max: 40.00}
+    ];
 
-            // Validate each numerical field
-            fields.forEach(field => {
-                const inputElement = document.getElementById(field.id);
-                const errorElement = document.getElementById(`${field.id}-error`);
-                const value = parseFloat(inputElement.value);
+    // Validate each numerical field
+    fields.forEach(field => {
+        const inputElement = document.getElementById(field.id);
+        const errorElement = document.getElementById(`${field.id}-error`);
+        const value = parseFloat(inputElement.value);
 
-                // Check if the value is within the specified range
-                if (value < field.min || value > field.max || isNaN(value)) {
-                    isValid = false;
-                    errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
-                    inputElement.classList.add("input-error"); // Optionally add a CSS class for styling errors
-                } else {
-                    errorElement.textContent = ''; // Clear any existing error message
-                    inputElement.classList.remove("input-error");
-                }
-            });
-
-            // Validate each categorical field
-const categoricalFields = [
-    {id: 'cut', errorId: 'cut-error', placeholder: '--Choose a Cut Quality', errorMessage: 'Please select a valid Cut Quality.'},
-    {id: 'color', errorId: 'color-error', placeholder: '--Choose a Color Quality', errorMessage: 'Please select a valid Color Quality.'},
-    {id: 'clarity', errorId: 'clarity-error', placeholder: '--Choose a Clarity Quality', errorMessage: 'Please select a valid Clarity Quality.'}
-];
-
-categoricalFields.forEach(field => {
-    const selectElement = document.getElementById(field.id);
-    const errorMessage = document.getElementById(field.errorId);
-
-    // Validate when the user selects a value
-    selectElement.addEventListener('change', () => {
-        if (selectElement.value === "") {
-            // Display a specific error message for each field
-            errorMessage.innerText = field.errorMessage;
-            errorMessage.classList.add("show");
-            selectElement.classList.add("invalid"); // Add invalid class to the select field
+        // Check if the value is within the specified range
+        if (value < field.min || value > field.max || isNaN(value)) {
+            isValid = false;
+            errorElement.textContent = `Please enter a value between ${field.min} and ${field.max}.`;
+            inputElement.classList.add("invalid");  // Add "invalid" class to style the input box
         } else {
-            // Clear the error message and invalid class
-            errorMessage.classList.remove("show");
+            errorElement.textContent = ''; // Clear any existing error message
+            inputElement.classList.remove("invalid"); // Remove "invalid" class if input is valid
+        }
+    });
+
+    const categoricalFields = [
+        {id: 'cut', errorId: 'cut-error', placeholder: '--Choose a Cut Quality', errorMessage: 'Please select a valid Cut Quality.'},
+        {id: 'color', errorId: 'color-error', placeholder: '--Choose a Color Quality', errorMessage: 'Please select a valid Color Quality.'},
+        {id: 'clarity', errorId: 'clarity-error', placeholder: '--Choose a Clarity Quality', errorMessage: 'Please select a valid Clarity Quality.'}
+    ];
+
+    // Validate categorical fields
+    categoricalFields.forEach(field => {
+        const selectElement = document.getElementById(field.id);
+        const errorElement = document.getElementById(field.errorId);
+
+        if (selectElement.value === "" || selectElement.value === field.placeholder) {
+            isValid = false;
+            errorElement.textContent = field.errorMessage;
+            selectElement.classList.add("invalid"); // Add "invalid" class to style the select box
+        } else {
+            errorElement.textContent = ''; // Clear error message
             selectElement.classList.remove("invalid");
         }
     });
-});
 
-
-            return isValid; // Only allow form submission if all fields are valid
-
-        }
+    return isValid; // Only allow form submission if all fields are valid
+}
 
     </script>
 </body>

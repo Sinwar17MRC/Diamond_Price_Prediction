@@ -2,16 +2,16 @@ from flask import Flask, render_template, request, jsonify
 import joblib
 import pandas as pd
 import numpy as np
-from scipy.special import inv_boxcox
+
 
 app = Flask(__name__)
 
 scaler = joblib.load('scaler.joblib')
-model = joblib.load('model_Optimal.joblib')
+model = joblib.load('modelEN_Optimal.joblib')
 
 columns = ['cut', 'color', 'clarity']
 encoders = {col: joblib.load(f"{col}_encoder.joblib") for col in columns}
-Lamda = joblib.load('Lamda_bc.joblib')
+
 
 
 @app.route('/')
@@ -48,12 +48,12 @@ def predict():
     prediction = model.predict(input_df)
     output = prediction[0]
 
-    # Reverse the Box-Cox transformation
-    original_prediction = inv_boxcox(output, Lamda)
+   
+    
 
     # Prepare the response in a structured format
     response = {
-        "predicted_value": round(original_prediction, 2)  # Round for better readability
+        "predicted_value": round(output, 2)  # Round for better readability
     }
 
     # Return the prediction as a JSON response
