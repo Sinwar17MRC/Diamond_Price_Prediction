@@ -4,7 +4,7 @@ This project is a Diamond Price Prediction Web Application developed using Flask
 
 The app features a responsive front end, crafted with a user-friendly interface, including a prediction form, error handling, and a stylish design. The project showcases the seamless integration of machine learning in web applications, utilizing Flask APIs to serve predictions.
 
-##Table of Content
+## Table of Content
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation and Setup](#installation-and-setup)
